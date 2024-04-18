@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 
+#root{
+  overflow: hidden;
+}
+
 *{
   font-family: "Mukta";
   margin: 0px;
@@ -13,24 +17,101 @@ header{
   display: flex;
   justify-content: space-between;
 }
+.nav-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 75px;
+  
+}
+.nav-sec-2 a{
+  text-decoration: none;
+  border-radius: 25px;
+  background: #5AB8EA ;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .nav-sec-2{
   display: flex;
-  width: 100px;
-  justify-content: space-between;
+  width: 250px;
+  gap: 10px;
+  justify-content: space-evenly;
 }
 
 .hero-banner{
   display: flex;
+  gap: 10px;
   flex-direction: column;
-  background-color: #080A52;
+  height: 70vh;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: radial-gradient(at 18% 99%, #84CEEB 0px, transparent 50%) 
+  repeat scroll 0% 0%, 
+  
+  radial-gradient(at 97% 8%, #C1C8E4 0px, 
+  transparent 50%) repeat scroll 0% 0%, 
+  
+  radial-gradient(at 79% 82%, #84CEEB 0px, 
+  transparent 50%) repeat scroll 0% 0%,
+      
+  radial-gradient(at 96% 10%, #84CEEB 0px, 
+  transparent 50%) repeat scroll 0% 0%,    
+              
+  radial-gradient(at 42% 20%, #5AB8EA 0px, 
+  transparent 50%) repeat scroll 0% 0%,
+              
+  radial-gradient(at 4% 49%, #8860D0 0px, 
+  transparent 50%) repeat scroll 0% 0%, rgba(0, 0, 0, 0) 
+  
+  radial-gradient(at 57% 33%, #C1C8E4 0px, 
+  #a299ff 50%) repeat scroll 0% 0%;
+
+  /* background: linear-gradient( 132deg, #84CEEB, #5AB8EA, 
+  #8860D0, #5680E9, #C1C8E4 );
+  background-size: 1000% 1000%; */
+  
   padding: 50px;
+  color: white;
+  animation: ScrollBG 20s ease;
+  background-size: 500% 500%;
+}
+
+@keyframes ScrollBG {
+  0%{background-position: 0% 2%;}
+  50%{background-position: 100% 99%;}
+  100%{background-position: 0% 2%;}
+}
+
+.hero-banner a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  padding: 15px;
+  width: 200px;
+  background: transparent;
+  font-size: 24px;
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.hero-banner a:hover{
+  transition: 0.5s;
+  color: #FF9398;
+  cursor: pointer;
 }
 
 .tagline{
   font-size: 3.0rem;
   font-weight: 300;
   max-width: 450px;
-  color: #EB2188;
+  color: White;
+  padding: 0px;
 }
 .relay{
   display: inline-block;
@@ -41,11 +122,20 @@ header{
   transform: translateY(-10px);
   transition: 0.5s;
 }
+
+.home-posts-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
 .home-posts{
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 40px;
+  width: 700px;
   justify-content: center;
 }
 .post-container{
@@ -57,7 +147,7 @@ header{
   transition: 0.5s;
 }
 .post-container:hover{
-  background: #A9A9A9;
+  background: #F2F2F2;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -66,7 +156,104 @@ header{
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+
+}
+.post-auth{
+  display: flex;
+  gap: 15px;
 }
 img{
-  max-width: 450px;
+  max-width: 350px;
+}
+
+.login-page-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  gap: 40px;
+}
+
+.login-form-inputs{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.login-input{
+  background: #F2F2F2;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+}
+.login-input:focus{
+  outline: none;
+}
+
+.login-input-pass{
+  background: #F2F2F2;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-input-pass input {
+  border: none;
+  background: none;
+}
+.login-input-pass input:focus {
+outline: none;
+}
+
+.login-submit{
+  background: #5AB8EA;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  transition: 0.25s;
+}
+.login-submit:hover{
+  cursor: pointer;
+  background: #50a9da;
+  transition: 0.5s;
+}
+.login-form p{
+  color: #acacac;
+}
+
+.login-side{
+  background: #5AB8EA;
+  border-radius: 15px;
+  width: 600px;
+  height: 650px;
+  margin-left: 15px;
+}
+
+.arrow-svg{
+  height: 100%;
+  width: 100%;
+  stroke-dasharray: 450;
+  animation: stroke 5s ease;
+}
+
+@keyframes stroke {
+
+  0%{stroke-dashoffset: 450;}
+  100%{stroke-dashoffset: 0;}
+  
 }
