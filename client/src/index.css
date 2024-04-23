@@ -4,6 +4,15 @@
   overflow: hidden;
 }
 
+@media (max-width: 1080px) {
+  .login-side{
+    display: none;
+  }
+  
+}
+
+
+
 *{
   font-family: "Mukta";
   margin: 0px;
@@ -13,6 +22,11 @@ p{
   margin: 0px;
 }
 
+
+.logo{
+  width: 100px;
+  height: 50px;
+}
 header{
   display: flex;
   justify-content: space-between;
@@ -25,21 +39,45 @@ header{
   height: 75px;
   
 }
-.nav-sec-2 a{
+.nav-sec-2 a:nth-child(2){
   text-decoration: none;
-  border-radius: 25px;
-  background: #5AB8EA ;
+  border-radius: 10px;
+  background: #5AB8EA;
   color: white;
   font-weight: 500;
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  transition: 0.25s;
+}
+.nav-sec-2 a:nth-child(2):hover{
+  background-color: #50a9da;
+  transition: 0.5s;
+}
+
+.nav-sec-2 a:nth-child(1){
+  text-decoration: none;
+  border: 1px solid #5AB8EA;
+  border-radius: 10px;
+  color: #5AB8EA;
+  font-weight: 500;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: 0.25s;
+}
+
+.nav-sec-2 a:nth-child(1):hover{
+  background-color: #5AB8EA;
+  color: white;
+  transition: 0.5s;
 }
 .nav-sec-2{
   display: flex;
   width: 250px;
   gap: 10px;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .hero-banner{
@@ -182,6 +220,7 @@ img{
   align-items: center;
   width: 500px;
   gap: 40px;
+  margin: 50px;
 }
 
 .login-form-inputs{
@@ -197,6 +236,10 @@ img{
   border-radius: 15px;
   padding: 15px;
 }
+.login-input:hover{
+  cursor: pointer;
+  outline: 2px solid #acacac;  
+}
 .login-input:focus{
   outline: none;
 }
@@ -209,10 +252,18 @@ img{
   justify-content: space-between;
   align-items: center;
 }
+
 .login-input-pass input {
   border: none;
   background: none;
+  width: 100%;
+  
+  cursor: pointer;
 }
+.login-input-pass:hover{
+  outline: 2px solid #acacac;
+}
+
 .login-input-pass input:focus {
 outline: none;
 }
@@ -256,4 +307,47 @@ outline: none;
   0%{stroke-dashoffset: 450;}
   100%{stroke-dashoffset: 0;}
   
+}
+
+#warning{
+  color: red;
+  font-size: 20px;
+}
+
+.create-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 50px;
+}
+
+.create-container form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 15px;
+  width: 70%;
+}
+
+#create-post-button{
+  background: #5AB8EA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  width: 150px;
+  margin-top: 90px;
+}
+
+#create-post-button:hover{
+  background: #50a9da;
+  cursor: pointer;
+}
+
+.quill{
+  display: flex;
+  flex-direction: column;
+  height: 250px;
 }

@@ -1,14 +1,20 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 
 import hidden from "@mui/icons-material/VisibilityOff";
 import shown from '@mui/icons-material/Visibility';
 
 import { SvgIcon } from "@mui/material";
+import { UserContext } from "../UserContext";
 
 
 export default function Login(){
+    const [username, setUsername] = useState('');
     const [pass, setPass] = useState('');
+    const [redirect, setRedirect] = useState(false);
+
+    const [warn, setWarn] = useState('');
+    const {setUserInfo} = useContext(UserContext);
     const [icon, setIcon] = useState(hidden)
     const [type,setType] = useState('password');
 
@@ -22,6 +28,33 @@ export default function Login(){
         }
 
     }
+
+
+    async function handleLogin(e){
+        e.preventDefault();
+        const response = await fetch('http://localhost:4000/login', {
+            method: 'POST',
+            body: JSON.stringify({username,pass}),
+            headers: {'Content-Type':'application/json'},
+            credentials: 'include'
+        })
+
+        if (response.ok){
+            response.json().then(userInfo => {
+                setUserInfo(userInfo);
+                setRedirect(true);
+            })
+            
+        }else{
+            setWarn('Incorrect credentials.');
+        }
+    }
+
+    //if redirect is true navigate to homepage 
+    if (redirect){
+        return <Navigate to={'/'} />
+    }
+    
     return(
 
         <div className="login-page-container"> 
@@ -35,14 +68,17 @@ export default function Login(){
 
             </div>
 
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleLogin}>
                 <div>
                     <h1> Welcome back to Relay </h1>
                     <p> To continue reading, writing and sharing login below. </p>
                 </div>
 
                 <div className="login-form-inputs">
-                    <input className="login-input" placeholder="Username"/>
+                    <input className="login-input" 
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}/>
 
                     <div className="login-input-pass">
                         <input 
@@ -59,8 +95,11 @@ export default function Login(){
 
                 <button className="login-submit">Login</button>
                 <p> Don't have an account? <Link to={"/Register"}>Signup</Link> </p>
-
+                <div id="warning">
+                    {warn}
+                </div>
             </form>
+
 
         </div>
     )
