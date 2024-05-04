@@ -22,10 +22,13 @@ p{
   margin: 0px;
 }
 
+.logo-header{
+  display: flex;
+}
 
 .logo{
-  width: 100px;
-  height: 50px;
+  height: 40px;
+  object-fit: cover;
 }
 header{
   display: flex;
@@ -35,7 +38,9 @@ header{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-left: 25px;
+  margin-right: 25px;
   height: 75px;
   
 }
@@ -80,10 +85,29 @@ header{
   align-items: center;
 }
 
+.hero-sec-1{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero-sec-2{
+  overflow: hidden;
+}
+#stamp{
+  height: 50px;
+  width: 40px;
+  opacity: 0;
+  transition: 2s;
+}
+#stamp:hover{
+  opacity: 1;
+  transition: 0.25s;
+}
+
 .hero-banner{
   display: flex;
-  gap: 10px;
-  flex-direction: column;
+  gap: 500px;
+  flex-direction: row;
   height: 70vh;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -319,14 +343,13 @@ outline: none;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  margin-bottom: 50px;
 }
 
 .create-container form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 15px;
   width: 70%;
 }
@@ -338,7 +361,7 @@ outline: none;
   border-radius: 5px;
   padding: 15px;
   width: 150px;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 #create-post-button:hover{
